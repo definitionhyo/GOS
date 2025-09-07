@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+           http://mybatis.org/schema/mybatis-spring https://mybatis.org/schema/mybatis-spring-1.2.xsd">
+           
+    <!-- Root Context: defines shared resources visible to all other web components -->
+    <!-- Mapper XML 중복 읽기 오류 -->
+    <!-- 해결 위해 추가) 패키지 내 @Controller, @Service, @Repository 스캔 
+    	 해결 위해 주석처리 56행 -->
+    <context:component-scan base-package="com.gostudy.gos" />
+    
+    <!-- HikariCP 라이브러리 사용을 위한 설정(커넥션풀 설정) -->
+    <!-- 1. HikariCP 를 활용한 DB 접속 정보 설정 위해 HikariConfig 객체 설정(JDBC 기본 설정) -->
+    <!-- com.zaxxer.hikari 패키지의 HikariConfig 클래스 지정 및 속성 설정 -->
+    <!-- 
+    <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/project_gos"></property>
+        <property name="username" value="definitionhyo"></property>
+        <property name="password" value="1234"></property>
+    </bean>
+    -->
+    
+    <!-- SQL 로그를 위한 log4jdbc 라이브러리 관련 DBCP 정보 변경(driverClassName, jdbcUrl 속성만 변경) -->
+    <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+        <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/>
+        <property name="jdbcUrl" value="jdbc:log4jdbc:mysql://localhost:3306/project_gos"/>
+        <property name="username" value="definitionhyo"/>
+        <property name="password" value="1234"/>
+    </bean>
+    
+    <!-- 2. HikariCP 를 통해 커넥션을 관리하는 DataSource 객체(HikariDataSource) 설정 -->
+    <!-- 생성자 파라미터로 1번에서 생성한 HikariConfig 객체 전달 -->
+    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
+        <constructor-arg ref="hikariConfig"/>
+    </bean>
+    
+    <!-- 3. Connection 객체 생성, 쿼리 전달 및 결과 리턴 등의 작업을 수행할 SQLSessionFactory 객체 설정 -->
+    <!-- MyBatis - Spring 연결을 담당하며, 내부적으로 SQLSession 객체를 통해 작업 수행 -->
+    <!-- 
+    주의!
+    1. 이전에 이미 DataSource 객체 설정이 완료되어 있어야 함
+    2. <bean> 태그의 id 값, class 값은 고정
+    3. <property> 태그의 dataSource, configLocation 이름 고정 
+    4. configLocation 속성에 지정된 파일(xml)이 실제 위치에 생성되어 있어야 함
+       (설정 항목 중 classpath 가 가리키는 기본 위치 : src/main/resources 패키지)
+    -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:/mybatis-config.xml"/>
+        <!-- mapperLocations 제거, <mybatis-spring:scan>에서 자동 스캔 -->
+		<!-- 
+        <property name="mapperLocations" value="classpath:/com/gostudy/gos/mapper/*Mapper.xml"/>
+        -->
+    </bean>
+    
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    
+    <!-- 4. MyBatis 연동에 사용될 객체(클래스)들의 패키지 위치 지정(기본 루트 패키지 지정) -->
+    <mybatis-spring:scan base-package="com.gostudy.gos.mapper"/>
+        
+</beans>
