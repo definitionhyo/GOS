@@ -10,4 +10,5 @@ public class MemberVO { // DB members Å×ÀÌ÷ם
     private String password;     // password
     private String role;         // role (MENTOR/MENTEE)
     private LocalDateTime createdAt; // created_at
+    private String memberEmail; // member_email
 }

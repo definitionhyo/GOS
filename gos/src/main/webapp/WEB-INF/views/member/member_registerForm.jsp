@@ -9,6 +9,7 @@
     <title>GOS</title>
     <!-- 부트스트랩 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  </head>
 </head>
 <body>
     <!-- 헤더 / 네비게이션 바 -->
@@ -27,49 +28,32 @@
     </nav>
 
     <!-- 메인 컨텐츠 -->
-    <!-- 네비게이션 아래 기능 버튼 섹션 -->
-	<div class="container mt-4">
-	    <div class="row g-4">
-	        <div class="col-md-6">
-	            <a href="createStudyForm" class="text-decoration-none">
-	                <div class="card text-center shadow-sm h-100 p-4">
-	                    <h4>GOS 만들기</h4>
-	                </div>
-	            </a>
-	        </div>
-	        <div class="col-md-6">
-	            <a href="studyList" class="text-decoration-none">
-	                <div class="card text-center shadow-sm h-100 p-4">
-	                    <h4>GOS 가입하기</h4>
-	                </div>
-	            </a>
-	        </div>
-	    </div>
-	</div>
-	    
-    
-    <div class="container mt-4">
-        <h2>Hot한 GOS</h2>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>제목</th>
-                    <th>작성자</th>
-                    <th>작성일</th>
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach var="board" items="${boardList}">
-                    <tr>
-                        <td><a href="BoardDetail?board_num=${board.board_num}">${board.board_subject}</a></td>
-                        <td>${board.board_name}</td>
-                        <td><fmt:formatDate value="${board.board_date}" pattern="yyyy-MM-dd"/></td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+        <div class="card shadow-lg p-4" style="width: 400px;">
+            <h3 class="text-center mb-4">회원가입</h3>
+            <form action="loginPro" method="post">
+                <div class="mb-3">
+                    <input type="email" class="form-control" id="memberEmail" name="memberEmail" placeholder="예) gos@gos.com" required> <!-- 25.09.09 ajax로 중복 확인예정 -->
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="membername" name="membername" placeholder="사용할 닉네임" required> <!-- 25.09.09 ajax로 중복 확인예정 -->
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호" required> <!-- 25.09.09 ajax로 중복 확인예정 -->
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호 확인" required> <!-- 25.09.09 ajax로 중복 확인예정 -->
+                </div>
+                <button type="submit" class="btn btn-dark w-100">가입</button> <!-- 25.09.09 ajax로 모달 사용 예정 -->
+            </form>
+            <div class="text-center mt-3">
+                <a href="javascript:history.back()" class="text-decoration-none">뒤로가기</a>
+            </div>
+        </div>
     </div>
-
+	
+	
+	
     <!-- 푸터 -->
     <footer class="bg-dark text-white text-center py-3 mt-5">
         &copy; 2025 My Portfolio | <a href="https://github.com/username" class="text-white">GitHub</a>
