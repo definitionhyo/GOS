@@ -14,13 +14,16 @@
     <!-- 헤더 / 네비게이션 바 -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="main">GOS</a>
+            <a class="navbar-brand" href="${pageContext.request.contextPath}/">GOS</a> <!-- main으로 가는 프로젝트 루트 -->
             <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto"> 
+                	<!-- 25.09.11 c:조건문으로 로그인, 비로그인 구현예정 -->
+                    <li class="nav-item"><a class="nav-link" href="mypage">mypage</a></li>
+                    <li class="nav-item"><a class="nav-link" href="logout">logout</a></li>
                     <li class="nav-item"><a class="nav-link" href="loginForm">Login</a></li>
                     <li class="nav-item"><a class="nav-link" href="register">Sign Up</a></li>
-                    <li class="nav-item"><a class="nav-link" href="BoardList">Board</a></li>
-                    <li class="nav-item"><a class="nav-link" href="BoardWriteForm">Write</a></li>
+                    <li class="nav-item"><a class="nav-link" href="boardList">Board</a></li>
+                    <li class="nav-item"><a class="nav-link" href="boardWriteForm">Write</a></li>
                 </ul>
             </div>
         </div>
@@ -31,14 +34,14 @@
 	<div class="container mt-4">
 	    <div class="row g-4">
 	        <div class="col-md-6">
-	            <a href="createStudyForm" class="text-decoration-none">
+	            <a href="createGosForm" class="text-decoration-none">
 	                <div class="card text-center shadow-sm h-100 p-4">
 	                    <h4>GOS 만들기</h4>
 	                </div>
 	            </a>
 	        </div>
 	        <div class="col-md-6">
-	            <a href="studyList" class="text-decoration-none">
+	            <a href="viewGosList" class="text-decoration-none">
 	                <div class="card text-center shadow-sm h-100 p-4">
 	                    <h4>GOS 가입하기</h4>
 	                </div>

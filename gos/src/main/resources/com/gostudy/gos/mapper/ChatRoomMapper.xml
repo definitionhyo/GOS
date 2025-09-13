@@ -7,15 +7,20 @@
  	<insert id="insertChatRoom"
  			parameterType="com.gostudy.gos.vo.ChatRoomVO">
  			INSERT INTO
+ 				chat_room
 				(
 					<!-- room_id = auto increment -->
 					mentor_id
 					, mentee_ID
+					, region
+					, category
 				)
  			VALUES
  				(
  					#{mentorId}
  					, #{menteeId}
+ 					, #{region}
+ 					, #{category}
  				)
  	</insert>
  	
@@ -29,6 +34,8 @@
  			, mentor_id AS mentorId 
  			, mentee_id AS menteeId
  			, created_at AS createdAt
+ 			, region
+ 			, category
  		FROM	
  			chat_room
  		WHERE
@@ -45,6 +52,8 @@
  			, mentor_id AS mentorId 
  			, mentee_id AS menteeId
  			, created_at AS createdAt
+ 			, region
+ 			, category
  		FROM	
  			chat_room
  		WHERE

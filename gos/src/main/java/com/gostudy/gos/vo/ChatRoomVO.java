@@ -9,4 +9,6 @@ public class ChatRoomVO { // DB chat_room ÂüÁ¶
     private int mentorId;        // mentor_id
     private int menteeId;        // mentee_id
     private LocalDateTime createdAt; // created_at
+    private String region; // region
+    private String category; //category
 }

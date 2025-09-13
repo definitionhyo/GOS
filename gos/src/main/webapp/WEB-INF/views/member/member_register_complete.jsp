@@ -28,24 +28,10 @@
     </nav>
 
     <!-- 메인 컨텐츠 -->
-    <!-- 메인 컨텐츠 -->
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
         <div class="card shadow-lg p-4" style="width: 400px;">
-            <h3 class="text-center mb-4">로그인</h3>
-            <form action="loginPro" method="post">
-                <div class="mb-3">
-                    <label for="username" class="form-label">아이디</label>
-                    <input type="email" class="form-control" id="membername" name="membername" placeholder="예) gos@gos.com" required>
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">비밀번호</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호 입력" required>
-                </div>
-                <button type="submit" class="btn btn-dark w-100">로그인</button>
-            </form>
-            <div class="text-center mt-3">
-                <a href="register" class="text-decoration-none">회원가입</a>
-            </div>
+            <h3 class="text-center mb-4">회원가입완료 로그인해주세요</h3>
+			<a href="loginForm" class="btn btn-dark w-100">로그인</a>
         </div>
     </div>
 	

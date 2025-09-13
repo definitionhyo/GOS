@@ -15,7 +15,7 @@
     <!-- 헤더 / 네비게이션 바 -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="main">GOS</a>
+            <a class="navbar-brand" href="${pageContext.request.contextPath}/">GOS</a> <!-- main으로 가는 프로젝트 루트 -->
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="loginForm">Login</a></li>
@@ -31,7 +31,7 @@
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
         <div class="card shadow-lg p-4" style="width: 400px;">
             <h3 class="text-center mb-4">회원가입</h3>
-            <form action="loginPro" method="post">
+            <form action="registerPro" method="post">
                 <div class="mb-3">
                     <input type="email" class="form-control" id="memberEmail" name="memberEmail" placeholder="예) gos@gos.com" required> <!-- 25.09.09 ajax로 중복 확인예정 -->
                 </div>
@@ -44,7 +44,7 @@
                 <div class="mb-3">
                     <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호 확인" required> <!-- 25.09.09 ajax로 중복 확인예정 -->
                 </div>
-                <button type="submit" class="btn btn-dark w-100">가입</button> <!-- 25.09.09 ajax로 모달 사용 예정 -->
+                <button type="submit" class="btn btn-dark w-100">가입</button>
             </form>
             <div class="text-center mt-3">
                 <a href="javascript:history.back()" class="text-decoration-none">뒤로가기</a>
