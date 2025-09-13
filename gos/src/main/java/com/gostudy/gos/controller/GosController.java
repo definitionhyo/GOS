@@ -3,6 +3,7 @@ package com.gostudy.gos.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.gostudy.gos.service.GosService;
 
@@ -22,4 +23,8 @@ public class GosController {
 		return "gos/gos_viewGosList";
 	}
 	
+	@PostMapping("createGosPro") // GOS »ý¼º
+	public String createGosPro() {
+		return "redirect:/myGosList";
+	}
 }

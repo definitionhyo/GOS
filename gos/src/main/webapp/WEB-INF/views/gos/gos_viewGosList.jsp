@@ -19,8 +19,8 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="loginForm">Login</a></li>
                     <li class="nav-item"><a class="nav-link" href="register">Sign Up</a></li>
-                    <li class="nav-item"><a class="nav-link" href="BoardList">Board</a></li>
-                    <li class="nav-item"><a class="nav-link" href="BoardWriteForm">Write</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gosList">Board</a></li>
+                    <li class="nav-item"><a class="nav-link" href="createGosForm">Write</a></li>
                 </ul>
             </div>
         </div>
@@ -46,10 +46,10 @@
 	        </div>
 	    </div>
 	</div>
-	    
-    
+	
+	<!-- GOS 게시판 리스트 -->    
     <div class="container mt-4">
-        <h2>Hot한 GOS</h2>
+        <h2>생성 되어있는 GOS</h2>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -68,7 +68,8 @@
                 </c:forEach>
             </tbody>
         </table>
-    </div>
+    </div>	
+	
 
     <!-- 푸터 -->
     <footer class="bg-dark text-white text-center py-3 mt-5">

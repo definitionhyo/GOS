@@ -19,8 +19,8 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="loginForm">Login</a></li>
                     <li class="nav-item"><a class="nav-link" href="register">Sign Up</a></li>
-                    <li class="nav-item"><a class="nav-link" href="BoardList">Board</a></li>
-                    <li class="nav-item"><a class="nav-link" href="BoardWriteForm">Write</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gosList">Board</a></li>
+                    <li class="nav-item"><a class="nav-link" href="createGosForm">Write</a></li>
                 </ul>
             </div>
         </div>
@@ -31,7 +31,7 @@
 	<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
     <div class="card shadow-lg p-4" style="width: 400px;">
         <h3 class="text-center mb-4">GOS 채팅방 만들기</h3>
-        <form action="gosCreatePro" method="post">
+        <form action="createGosPro" method="post">
             <div class="mb-3">
                 <label for="gosName" class="form-label">채팅방 이름</label>
                 <input type="text" id="gosName" name="gosName" class="form-control"> <!-- id = 뷰 식별자, name = post 전달 파라미터 -->

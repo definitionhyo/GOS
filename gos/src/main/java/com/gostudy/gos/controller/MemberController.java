@@ -32,6 +32,15 @@ public class MemberController {
 	public String loginPro() {
 		return "main";
 	}
-
+	
+	@GetMapping("myGosList") // 마이페이지 고스리스트
+	public String myGosList() {
+		return "member/member_mypage_myGosList";
+	}
+	
+	@GetMapping("mypage") // 마이페이지 이동
+	public String mypage() {
+		return "member/member_mypage_main";
+	}
 	
 }

@@ -9,6 +9,7 @@
     <title>GOS</title>
     <!-- 부트스트랩 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  </head>
 </head>
 <body>
     <!-- 헤더 / 네비게이션 바 -->
@@ -16,10 +17,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="${pageContext.request.contextPath}/">GOS</a> <!-- main으로 가는 프로젝트 루트 -->
             <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto"> 
-                	<!-- 25.09.11 c:조건문으로 로그인, 비로그인 구현예정 -->
-                    <li class="nav-item"><a class="nav-link" href="mypage">mypage</a></li>
-                    <li class="nav-item"><a class="nav-link" href="logout">logout</a></li>
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="loginForm">Login</a></li>
                     <li class="nav-item"><a class="nav-link" href="register">Sign Up</a></li>
                     <li class="nav-item"><a class="nav-link" href="gosList">Board</a></li>
@@ -30,49 +28,31 @@
     </nav>
 
     <!-- 메인 컨텐츠 -->
-    <!-- 네비게이션 아래 기능 버튼 섹션 -->
-	<div class="container mt-4">
-	    <div class="row g-4">
-	        <div class="col-md-6">
-	            <a href="createGosForm" class="text-decoration-none">
-	                <div class="card text-center shadow-sm h-100 p-4">
-	                    <h4>GOS 만들기</h4>
-	                </div>
-	            </a>
-	        </div>
-	        <div class="col-md-6">
-	            <a href="viewGosList" class="text-decoration-none">
-	                <div class="card text-center shadow-sm h-100 p-4">
-	                    <h4>GOS 가입하기</h4>
-	                </div>
-	            </a>
-	        </div>
-	    </div>
-	</div>
-	    
-    
-    <div class="container mt-4">
-        <h2>Hot한 GOS</h2>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>제목</th>
-                    <th>작성자</th>
-                    <th>작성일</th>
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach var="board" items="${boardList}">
-                    <tr>
-                        <td><a href="BoardDetail?board_num=${board.board_num}">${board.board_subject}</a></td>
-                        <td>${board.board_name}</td>
-                        <td><fmt:formatDate value="${board.board_date}" pattern="yyyy-MM-dd"/></td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
-    </div>
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <!-- 사이드바 -->
+            <div class="col-md-3">
+                <div class="sidebar">
+                    <p class="h5 mb-3">마이페이지</p>
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a class="nav-link" href="mypage">홈</a></li>
+                        <li class="nav-item"><a class="nav-link" href="myInfoEdit">개인정보 수정</a></li>
+                        <li class="nav-item"><a class="nav-link" href="myGosList">가입한 GOS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="gosManagement">GOS 관리</a></li>
+                    </ul>
+                </div>
+            </div>
 
+            <!-- 콘텐츠 영역 -->
+            <div class="col-md-9 content-area">
+                <h2>환영합니다!</h2>
+                <p>여기에 선택한 메뉴에 따라 콘텐츠가 표시됩니다.</p>
+            </div>
+        </div>
+    </div>
+	
+	
+	
     <!-- 푸터 -->
     <footer class="bg-dark text-white text-center py-3 mt-5">
         &copy; 2025 My Portfolio | <a href="https://github.com/username" class="text-white">GitHub</a>

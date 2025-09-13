@@ -16,10 +16,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="${pageContext.request.contextPath}/">GOS</a> <!-- main으로 가는 프로젝트 루트 -->
             <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto"> 
-                	<!-- 25.09.11 c:조건문으로 로그인, 비로그인 구현예정 -->
-                    <li class="nav-item"><a class="nav-link" href="mypage">mypage</a></li>
-                    <li class="nav-item"><a class="nav-link" href="logout">logout</a></li>
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="loginForm">Login</a></li>
                     <li class="nav-item"><a class="nav-link" href="register">Sign Up</a></li>
                     <li class="nav-item"><a class="nav-link" href="gosList">Board</a></li>
@@ -49,10 +46,10 @@
 	        </div>
 	    </div>
 	</div>
-	    
-    
+	
+	<!-- GOS 게시판 리스트 -->    
     <div class="container mt-4">
-        <h2>Hot한 GOS</h2>
+        <h2>내가 가입한 GOS</h2>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -71,7 +68,8 @@
                 </c:forEach>
             </tbody>
         </table>
-    </div>
+    </div>	
+	
 
     <!-- 푸터 -->
     <footer class="bg-dark text-white text-center py-3 mt-5">
