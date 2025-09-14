@@ -28,23 +28,22 @@
     </nav>
 
     <!-- 메인 컨텐츠 -->
-    <!-- 메인 컨텐츠 -->
-    <div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
-        <div class="card shadow-lg p-4" style="width: 400px;">
-            <h3 class="text-center mb-4">로그인</h3>
-            <form action="loginPro" method="post">
-                <div class="mb-3">
-                    <label for="username" class="form-label">아이디</label>
-                    <input type="email" class="form-control" id="membername" name="membername" placeholder="예) gos@gos.com" required>
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <!-- 사이드바 -->
+            <div class="col-md-3">
+                <div class="sidebar">
+                    <p class="h5 mb-3">마이페이지</p>
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a class="nav-link" href="mypage">GOS 관리</a></li>
+                        <li class="nav-item"><a class="nav-link" href="myInfoEdit">개인정보 수정</a></li>
+                    </ul>
                 </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">비밀번호</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호 입력" required>
-                </div>
-                <button type="submit" class="btn btn-dark w-100">로그인</button>
-            </form>
-            <div class="text-center mt-3">
-                <a href="register" class="text-decoration-none">회원가입</a>
+            </div>
+
+            <!-- 콘텐츠 영역 -->
+            <div class="col-md-9 content-area">
+            	<h1>비밀번호 변경 성공</h1>
             </div>
         </div>
     </div>

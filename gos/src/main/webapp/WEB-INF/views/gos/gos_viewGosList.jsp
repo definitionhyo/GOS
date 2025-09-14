@@ -19,7 +19,7 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="loginForm">Login</a></li>
                     <li class="nav-item"><a class="nav-link" href="register">Sign Up</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gosList">Board</a></li>
+                    <li class="nav-item"><a class="nav-link" href="viewGosList">Board</a></li>
                     <li class="nav-item"><a class="nav-link" href="createGosForm">Write</a></li>
                 </ul>
             </div>
@@ -54,16 +54,16 @@
             <thead>
                 <tr>
                     <th>제목</th>
-                    <th>작성자</th>
-                    <th>작성일</th>
+                    <th>멘토</th>
+                    <th>GOS생성일</th>
                 </tr>
             </thead>
             <tbody>
-                <c:forEach var="board" items="${boardList}">
+                <c:forEach var="gos" items="${gosList}"> <!-- jstl로 테이블 데이터 가져오는 반복문  -->
                     <tr>
-                        <td><a href="BoardDetail?board_num=${board.board_num}">${board.board_subject}</a></td>
-                        <td>${board.board_name}</td>
-                        <td><fmt:formatDate value="${board.board_date}" pattern="yyyy-MM-dd"/></td>
+                        <td><a href="ChatRoomDetail?roomId=${gos.roomId}">${gos.chatRoomName}</a></td>
+                        <td>${gos.mentorId}</td>
+                        <td><fmt:formatDate value="${gos.createdAt}" pattern="yyyy-MM-dd"/></td>
                     </tr>
                 </c:forEach>
             </tbody>

@@ -20,7 +20,7 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="loginForm">Login</a></li>
                     <li class="nav-item"><a class="nav-link" href="register">Sign Up</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gosList">Board</a></li>
+                    <li class="nav-item"><a class="nav-link" href="viewGosList">Board</a></li>
                     <li class="nav-item"><a class="nav-link" href="createGosForm">Write</a></li>
                 </ul>
             </div>

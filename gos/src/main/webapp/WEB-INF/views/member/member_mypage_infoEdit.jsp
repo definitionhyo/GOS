@@ -41,30 +41,41 @@
                 </div>
             </div>
 
-            <!-- 콘텐츠 영역 -->
+           <!-- 콘텐츠 영역 -->
             <div class="col-md-9 content-area">
-            	<h2>참여하고 있는 GOS</h2>
-            	<table class="table table-striped">
-		            <thead>
-		                <tr>
-		                    <th>제목</th>
-		                    <th>멘토</th>
-		                    <th>GOS생성일</th>
-		                </tr>
-		            </thead>
-		            <tbody>
-		                <c:forEach var="gos" items="${gosList}"> <!-- jstl로 테이블 데이터 가져오는 반복문  -->
-		                    <tr>
-		                        <td><a href="ChatRoomDetail?roomId=${gos.roomId}">${gos.chatRoomName}</a></td>
-		                        <td>${gos.mentorId}</td>
-		                        <td><fmt:formatDate value="${gos.createdAt}" pattern="yyyy-MM-dd"/></td>
-		                    </tr>
-		                </c:forEach>
-		            </tbody>
-            	</table>
+                <h3 class="mb-4">개인정보 수정</h3>
+
+                <!-- 닉네임 변경 --> <!-- 25.09.14 ajax 모달로 성공 표시예정 -->
+				<form action="changeMemberName" method="post" class="mb-4">
+				    <div class="mb-3 d-flex align-items-center">
+				        <label class="form-label me-2">현재 닉네임:</label>
+				        <span class="fw-bold">${sessionScope.loginMember.memberName}</span> <!-- 25.09.14 세션으로 정보 가져올 예정(컨트롤러에서 세션 추가 예정) -->
+				    </div>
+				    <div class="mb-3">
+				        <label for="newMemberName" class="form-label">변경할 닉네임</label>
+				        <input type="text" 
+				        		id="newMemberName" 
+				        		name="memberName"  
+				                class="form-control w-50" required> <!-- name = 컨트롤러에 넘겨주는 파라미터 -->
+				    </div>
+				    <button type="submit" class="btn btn-dark">닉네임 변경</button>
+				</form>
+				
+				<!-- 비밀번호 변경 --> <!-- 25.09.14 ajax 모달로 성공 표시예정 -->
+				<form action="changeMemberPassword" method="post">
+				    <div class="mb-3">
+				        <label for="newPassword" class="form-label">변경할 비밀번호</label>
+				        <input type="password" 
+				        	   id="newPassword" 
+				        	   name="password" 
+				               class="form-control w-50" required>
+				    </div>
+				    <button type="submit" class="btn btn-dark">비밀번호 변경</button>
+				</form>
             </div>
         </div>
     </div>
+
 	
 	
 	

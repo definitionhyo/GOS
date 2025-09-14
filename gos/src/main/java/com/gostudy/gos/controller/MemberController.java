@@ -33,9 +33,9 @@ public class MemberController {
 		return "main";
 	}
 	
-	@GetMapping("myGosList") // 마이페이지 고스리스트
+	@GetMapping("myGosList") // 마이페이지 고스리스트(마이페이지 메인)
 	public String myGosList() {
-		return "member/member_mypage_myGosList";
+		return "member/member_mypage_main";
 	}
 	
 	@GetMapping("mypage") // 마이페이지 이동
@@ -43,4 +43,18 @@ public class MemberController {
 		return "member/member_mypage_main";
 	}
 	
+	@GetMapping("myInfoEdit") // 마이페이지 개인정보 수정 이동
+	public String myInfoEdit() {
+		return "member/member_mypage_infoEdit";
+	}
+	
+	@PostMapping("changeMemberName") // 마이페이지 닉네임 변경
+	public String changeMemberName() {
+		return "toBeDeleted/changeNameSuccess";
+	}
+	
+	@PostMapping("changeMemberPassword") // 마이페이지 비밀번호 변경
+	public String changeMemberPassword() {
+		return "toBeDeleted/changePasswordSuccess";
+	}
 }

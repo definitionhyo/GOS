@@ -19,7 +19,7 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="loginForm">Login</a></li>
                     <li class="nav-item"><a class="nav-link" href="register">Sign Up</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gosList">Board</a></li>
+                    <li class="nav-item"><a class="nav-link" href="viewGosList">Board</a></li>
                     <li class="nav-item"><a class="nav-link" href="createGosForm">Write</a></li>
                 </ul>
             </div>
@@ -34,7 +34,10 @@
         <form action="createGosPro" method="post">
             <div class="mb-3">
                 <label for="gosName" class="form-label">채팅방 이름</label>
-                <input type="text" id="gosName" name="gosName" class="form-control"> <!-- id = 뷰 식별자, name = post 전달 파라미터 -->
+                <input type="text" 
+                	   id="gosName" 
+                	   name="gosName" 
+                	   class="form-control"> <!-- id = 뷰 식별자, name = post 전달 파라미터 -->
             </div>
             <div class="mb-3">
                 <label for="gosRegion" class="form-label">카테고리</label>

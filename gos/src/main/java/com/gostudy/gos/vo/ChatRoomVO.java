@@ -11,4 +11,5 @@ public class ChatRoomVO { // DB chat_room ÂüÁ¶
     private LocalDateTime createdAt; // created_at
     private String region; // region
     private String category; //category
+    private String chatRoomName; //chat_room_name
 }
