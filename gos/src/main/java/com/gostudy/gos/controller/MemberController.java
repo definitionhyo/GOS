@@ -6,12 +6,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.gostudy.gos.service.MemberService;
+import com.gostudy.gos.vo.MemberVO;
 
 @Controller // Controller 명시해주는 어노테이션
 public class MemberController {
 
 	@Autowired // 의존관계 주입해주는 어노테이션
-	private MemberService service;
+	private MemberService memberService;
 	
 	@GetMapping("loginForm") // 로그인 화면
 	public String loginForm() {
@@ -23,9 +24,16 @@ public class MemberController {
 		return "member/member_registerForm"; // member/member_registerForm.jsp
 	}
 	
-	@PostMapping("registerPro") // 회원가입 완료 
-	public String registerPro() {
-		return "member/member_register_complete";
+	@PostMapping("registerPro") // 회원가입 기능
+	public String registerPro(MemberVO member) {
+		int insertCount = memberService.registMember(member); // memberVO전달, 저장된 행 수 반환
+		if(insertCount > 0) {
+			return "member/member_register_complete";
+		}
+		else {
+			return "member/member_register_fail"; // 25.09.14 ajax 모달로 수정예정
+		}
+		
 	}
 	
 	@PostMapping("loginPro") // 로그인 완료

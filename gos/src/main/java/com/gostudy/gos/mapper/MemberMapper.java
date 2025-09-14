@@ -6,7 +6,7 @@ import com.gostudy.gos.vo.MemberVO;
 
 public interface MemberMapper {
 
-    // 1. 회원 등록
+    // 1. 회원 가입
     int insertMember(MemberVO member);
 
     // 2. 회원 조회 (ID 기준)
